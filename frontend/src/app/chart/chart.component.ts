@@ -106,7 +106,11 @@ export class ChartComponent implements OnInit, OnDestroy {
         y: stat.cost,
         x: moment(stat.timestamp)
       });
-      labelSet.add(moment(stat.timestamp).format('MM/DD/YYYY'));
+      if(this.durationControl.value === 'week') {
+        labelSet.add(moment(stat.timestamp).format('MM/DD/YYYY'));
+      } else {
+        labelSet.add(moment(stat.timestamp).format('MMM-YYYY'));
+      }
     });
     
     this.sourceTypes.forEach(type => {
