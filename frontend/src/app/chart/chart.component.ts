@@ -32,19 +32,19 @@ export class ChartComponent implements OnInit, OnDestroy {
   chartOptions: any = {
     responsive: true,
     scales: {
-      xAxes: [
-        {
-          type: 'time',
-          time: {
-              unit: 'month'
-          }
-        },
-      ],
-      yAxes: [
-        {
-          stacked: true,
-        },
-      ],
+      yAxes: {
+        stacked: true,
+        title: {
+          text: "Cost",
+          display: true
+        }
+      },
+      xAxes: {
+        title: {
+          text: "Month",
+          display: true
+        }
+      },
     },
   };
 
@@ -106,10 +106,12 @@ export class ChartComponent implements OnInit, OnDestroy {
         y: stat.cost,
         x: moment(stat.timestamp)
       });
-      if(this.durationControl.value === 'week') {
+      if (this.durationControl.value === 'week') {
         labelSet.add(moment(stat.timestamp).format('MM/DD/YYYY'));
+        this.chartOptions.scales.xAxes.title.text = 'Week';
       } else {
         labelSet.add(moment(stat.timestamp).format('MMM-YYYY'));
+        this.chartOptions.scales.xAxes.title.text = 'Month';
       }
     });
     
