@@ -1,0 +1,21 @@
+-- Table: public.energy_usage
+
+-- DROP TABLE public.energy_usage;
+
+CREATE TABLE public.energy_usage
+(
+    "timestamp" timestamp without time zone,
+    unit_cost integer,
+    units integer,
+    source_type character varying COLLATE pg_catalog."default",
+    hours integer,
+    id bigint NOT NULL DEFAULT nextval('energy_usage_id_seq'::regclass),
+    CONSTRAINT energy_usage_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.energy_usage
+    OWNER to postgres;

@@ -1,0 +1,17 @@
+Folder contains both server (Spring Boot) and client (Angular SPA) applications and also the script to generate the table.
+
+To run the server:
+	1. Create a database named "energy"
+	2. Run the script provided in script.txt file
+	3. Update database credentials in backend\src\main\resources\application.properties file.
+	4. Run the application.
+	
+To run the frontend:
+	1. Open terminal in frontend folder.
+	2. Run "npm install"
+	3. Run "ng serve"
+	4. Go to localhost:4200 to access the application.
+
+
+Assumption:
+I used units * no_of_units formula to calculate total cost and cost for a specific period.

@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutGap="20px" class="main-container">
+  <div fxLayout="row" fxLayoutGap="20px" class="widget-container">
+    <app-monthlybill fxFlex="25"></app-monthlybill>
+
+    <mat-card fxFlex="75" fxLayoutGap="20px">
+      <mat-form-field fxFlex="50" appearance="fill">
+        <mat-label>Duration</mat-label>
+        <mat-select [formControl]="durationControl">
+          <mat-option value="month"> Monthly </mat-option>
+          <mat-option value="week"> Weekly </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50" appearance="fill">
+        <mat-label>Source Type</mat-label>
+        <mat-select [formControl]="sourceControl" [multiple]="true" #multiSelect>
+          <mat-option>
+            <ngx-mat-select-search [formControl]="sourceFilterControl" placeholderLabel="Search">
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let type of selectedSourceTypes" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+  </div>
+
+  <canvas *ngIf="chartDatasets" baseChart [datasets]="chartDatasets" [labels]="chartLabels" [options]="chartOptions"
+    [legend]="true">
+  </canvas>
+
+</div>

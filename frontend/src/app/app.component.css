@@ -1,0 +1,28 @@
+.example-container {
+    width: 100%;
+    height: 700px;
+   
+    
+  }
+  .side{
+      width: 17%;
+  }
+  ul{
+      margin-top: 20px;
+  }
+  li{
+      list-style-type: none;
+      
+  }
+  a{
+      font-size: 20px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+      padding: 11px 77px;
+  }
+  a:hover{
+      color: white;
+      background-color: #673AB7;
+  }
