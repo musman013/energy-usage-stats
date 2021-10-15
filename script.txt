@@ -1,3 +1,17 @@
+-- SEQUENCE: public.energy_usage_id_seq
+
+-- DROP SEQUENCE public.energy_usage_id_seq;
+
+CREATE SEQUENCE public.energy_usage_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+ALTER SEQUENCE public.energy_usage_id_seq
+    OWNER TO postgres;
+
 -- Table: public.energy_usage
 
 -- DROP TABLE public.energy_usage;
@@ -5,10 +19,10 @@
 CREATE TABLE public.energy_usage
 (
     "timestamp" timestamp without time zone,
-    unit_cost integer,
-    units integer,
+    unit_cost numeric
+    units numeric,
     source_type character varying COLLATE pg_catalog."default",
-    hours integer,
+    hours numeric,
     id bigint NOT NULL DEFAULT nextval('energy_usage_id_seq'::regclass),
     CONSTRAINT energy_usage_pkey PRIMARY KEY (id)
 )
