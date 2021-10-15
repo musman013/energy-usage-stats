@@ -15,7 +15,7 @@ public class EnergyUsage {
 
     @Basic
     @Column(name = "hours", nullable = true)
-    private Integer hours;
+    private Double hours;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +32,9 @@ public class EnergyUsage {
 
     @Basic
     @Column(name = "unit_cost", nullable = true)
-    private Integer unitCost;
+    private Double unitCost;
 
     @Basic
     @Column(name = "units", nullable = true)
-    private Integer units;
+    private Double units;
 }

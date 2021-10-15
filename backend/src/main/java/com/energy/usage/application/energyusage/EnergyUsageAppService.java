@@ -20,9 +20,6 @@ public class EnergyUsageAppService implements IEnergyUsageAppService {
 	
 	@NonNull
 	private IEnergyUsageRepository energyUsageRepository;
-	
-	@NonNull
-	private IEnergyUsageMapper mapper;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public Double getTotalCost() {
@@ -39,24 +36,11 @@ public class EnergyUsageAppService implements IEnergyUsageAppService {
 			UsageStatsDto item = new UsageStatsDto();
 			item.setSourceType(row.get(0));
 			item.setTimestamp(row.get(1));
-			item.setCost(Long.valueOf(row.get(2)));
+			item.setCost(Double.valueOf(row.get(2)));
 			array.add(item);
 		}
 		
 		return array;
-	}
-	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
-	public List<FindEnergyUsageByIdOutput> find() throws Exception {
-		List<EnergyUsage> energyUsageList = energyUsageRepository.findAll();
-		Iterator<EnergyUsage> energyUsageIterator = energyUsageList.iterator();
-		List<FindEnergyUsageByIdOutput> output = new ArrayList<>();
-
-		while (energyUsageIterator.hasNext()) {
-			EnergyUsage energyUsage = energyUsageIterator.next();
-			output.add(mapper.energyUsageToFindEnergyUsageByIdOutput(energyUsage));
-		}
-		return output;
 	}
 
 }

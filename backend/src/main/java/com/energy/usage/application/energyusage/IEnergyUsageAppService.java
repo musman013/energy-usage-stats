@@ -7,5 +7,4 @@ public interface IEnergyUsageAppService {
 	
     Double getTotalCost();
     List<UsageStatsDto> getGraphData(String duration, List<String> sourceTypes);
-    List<FindEnergyUsageByIdOutput> find() throws Exception;
 }

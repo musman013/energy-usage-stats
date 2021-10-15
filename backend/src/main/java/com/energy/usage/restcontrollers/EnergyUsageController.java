@@ -1,7 +1,6 @@
 package com.energy.usage.restcontrollers;
 
 import com.energy.usage.application.energyusage.IEnergyUsageAppService;
-import com.energy.usage.application.energyusage.dto.FindEnergyUsageByIdOutput;
 import com.energy.usage.application.energyusage.dto.UsageStatsDto;
 import com.google.gson.JsonArray;
 
@@ -32,10 +31,4 @@ public class EnergyUsageController {
     	return ResponseEntity.ok(_energyUsageAppService.getGraphData(duration, sourceTypes));
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<FindEnergyUsageByIdOutput>> find()
-        throws Exception {
-
-        return ResponseEntity.ok(_energyUsageAppService.find());
-    }
 }

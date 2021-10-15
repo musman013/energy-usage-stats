@@ -9,5 +9,5 @@ public class UsageStatsDto {
 
     private String sourceType;
     private String timestamp;
-    private Long cost;
+    private Double cost;
 }
